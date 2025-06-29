@@ -1,4 +1,5 @@
 import React from "react"
+import "./App.css"
 // Import minimal Material UI components (Button, AppBar, Toolbar)
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
@@ -8,7 +9,7 @@ import Typography from "@mui/material/Typography"
 // Main App component for SigniSure
 function App() {
   return (
-    <div>
+    <>
       {/* Top navigation bar using Material UI */}
       <AppBar position="static">
         <Toolbar>
@@ -33,7 +34,7 @@ function App() {
         </Typography>
         {/* TODO: Add document list, viewer, and signing components here */}
       </main>
-    </div>
+    </>
   )
 }
 
