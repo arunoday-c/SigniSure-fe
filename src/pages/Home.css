@@ -1,0 +1,7 @@
+.main-content {
+  padding: 24px;
+}
+
+.grow {
+  flex-grow: 1;
+}

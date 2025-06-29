@@ -1,0 +1,8 @@
+.document-view-container {
+  padding: 32px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
