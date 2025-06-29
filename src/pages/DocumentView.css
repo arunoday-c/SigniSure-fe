@@ -6,3 +6,63 @@
   margin: 40px auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
+.pdf-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.pdf-wrapper {
+  position: relative;
+  display: inline-block;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.signature-img {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  pointer-events: none;
+}
+
+.pdf-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.signature-section {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sig-canvas {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.signature-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.place-signature-info {
+  color: #1976d2;
+  font-size: 14px;
+  margin-top: 8px;
+}
