@@ -1,17 +1,12 @@
 import React, { useRef, useState } from "react"
-// import { useLocation } from "react-router-dom"
 import { Document, Page, pdfjs } from "react-pdf"
 import SignatureCanvas from "react-signature-canvas"
+
 import "./DocumentView.css"
 
-// Set workerSrc for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs"
 
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search)
-// }
-
-const SAMPLE_PDF_URL = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+const SAMPLE_PDF_URL = "/sample.pdf"
 
 function DocumentView() {
   //   const query = useQuery()
