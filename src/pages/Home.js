@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import "../App.css"
 import "./Home.css"
-import AppBar from "@mui/material/AppBar"
-import Toolbar from "@mui/material/Toolbar"
-import Button from "@mui/material/Button"
+import Header from "../components/Header"
 import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
 
 function Home() {
   const [theme, setTheme] = useState("primary")
@@ -21,16 +20,7 @@ function Home() {
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className="grow">
-            SigniSure
-          </Typography>
-          <Button color="inherit">Dashboard</Button>
-          <Button color="inherit">Documents</Button>
-          <Button color="inherit">Sign Out</Button>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <main className="main-content">
         <Typography variant="h4" gutterBottom>
           Welcome to SigniSure
