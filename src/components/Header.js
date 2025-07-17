@@ -7,6 +7,7 @@ import ToggleButton from "@mui/material/ToggleButton"
 import LightModeIcon from "@mui/icons-material/LightMode"
 import DarkModeIcon from "@mui/icons-material/DarkMode"
 import { useNavigate } from "react-router-dom"
+import "./Header.css"
 
 function Header({ theme, setTheme }) {
   const isDark = theme === "secondary"
@@ -18,26 +19,17 @@ function Header({ theme, setTheme }) {
 
   return (
     <AppBar position="static">
-      <Toolbar sx={{ minHeight: 40, paddingLeft: 1, paddingRight: 1 }}>
-        <Typography variant="h6" className="grow" sx={{ fontSize: "1.1rem" }}>
+      <Toolbar className="header-toolbar">
+        <Typography variant="h6" className="header-title">
           SigniSure
         </Typography>
-        <Button
-          color="inherit"
-          sx={{ minWidth: 32, fontSize: "0.95rem", padding: "4px 8px" }}
-          onClick={() => navigate("/dashboard")}
-        >
+        <Button color="inherit" className="header-btn" onClick={() => navigate("/dashboard")}>
           Dashboard
         </Button>
-        <Button color="inherit" sx={{ minWidth: 32, fontSize: "0.95rem", padding: "4px 8px" }}>
+        <Button color="inherit" className="header-btn">
           Sign Out
         </Button>
-        <ToggleButton
-          value="theme"
-          selected={isDark}
-          onChange={handleThemeToggle}
-          sx={{ minWidth: 32, padding: "4px 8px", ml: 1 }}
-        >
+        <ToggleButton value="theme" selected={isDark} onChange={handleThemeToggle} className="header-toggle">
           {isDark ? <DarkModeIcon /> : <LightModeIcon />}
         </ToggleButton>
       </Toolbar>

@@ -1,0 +1,22 @@
+.header-toolbar {
+  min-height: 40px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.header-title {
+  font-size: 1.1rem;
+  flex-grow: 1;
+}
+
+.header-btn {
+  min-width: 32px;
+  font-size: 0.95rem;
+  padding: 4px 8px;
+}
+
+.header-toggle {
+  min-width: 32px;
+  padding: 4px 8px;
+  margin-left: 8px;
+}

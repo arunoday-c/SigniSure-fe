@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { Document, Page, pdfjs } from "react-pdf"
 import SignatureCanvas from "react-signature-canvas"
+import Header from "../components/Header"
 
 import "./DocumentView.css"
 
@@ -15,6 +16,7 @@ const SAMPLE_PDF_URL = "/sample.pdf"
 function DocumentView() {
   //   const query = useQuery()
   //   const fileId = query.get("id")
+  const [theme, setTheme] = useState("primary")
   const [numPages, setNumPages] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
   const [signatureURL, setSignatureURL] = useState(null)
@@ -47,53 +49,56 @@ function DocumentView() {
   }
 
   return (
-    <div className="document-view-container">
-      <h2>Document Viewer</h2>
-      <div className="document-main-content">
-        <div className="pdf-section">
-          <div className="pdf-wrapper" ref={pdfWrapperRef} onClick={handlePdfClick}>
-            <Document file={pdfUrl} onLoadSuccess={({ numPages }) => setNumPages(numPages)} className="pdf-document">
-              <Page pageNumber={pageNumber} width={500} />
-            </Document>
-            {signatureURL && signaturePos && pageNumber === 1 && (
-              <img
-                src={signatureURL}
-                alt="Signature"
-                className="signature-img"
-                style={{ left: signaturePos.x, top: signaturePos.y }}
-              />
-            )}
+    <>
+      <Header theme={theme} setTheme={setTheme} />
+      <div className="document-view-container">
+        <h2>Document Viewer</h2>
+        <div className="document-main-content">
+          <div className="pdf-section">
+            <div className="pdf-wrapper" ref={pdfWrapperRef} onClick={handlePdfClick}>
+              <Document file={pdfUrl} onLoadSuccess={({ numPages }) => setNumPages(numPages)} className="pdf-document">
+                <Page pageNumber={pageNumber} width={500} />
+              </Document>
+              {signatureURL && signaturePos && pageNumber === 1 && (
+                <img
+                  src={signatureURL}
+                  alt="Signature"
+                  className="signature-img"
+                  style={{ left: signaturePos.x, top: signaturePos.y }}
+                />
+              )}
+            </div>
+            <div className="pdf-controls">
+              <button onClick={() => setPageNumber((p) => Math.max(1, p - 1))} disabled={pageNumber <= 1}>
+                Previous
+              </button>
+              <span>
+                Page {pageNumber} of {numPages || 1}
+              </span>
+              <button
+                onClick={() => setPageNumber((p) => Math.min(numPages || 1, p + 1))}
+                disabled={pageNumber >= (numPages || 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
-          <div className="pdf-controls">
-            <button onClick={() => setPageNumber((p) => Math.max(1, p - 1))} disabled={pageNumber <= 1}>
-              Previous
-            </button>
-            <span>
-              Page {pageNumber} of {numPages || 1}
-            </span>
-            <button
-              onClick={() => setPageNumber((p) => Math.min(numPages || 1, p + 1))}
-              disabled={pageNumber >= (numPages || 1)}
-            >
-              Next
-            </button>
+          <div className="signature-section">
+            <h3>Draw Your Signature</h3>
+            <SignatureCanvas
+              penColor="black"
+              canvasProps={{ width: 300, height: 100, className: "sig-canvas" }}
+              ref={sigCanvasRef}
+            />
+            <div className="signature-controls">
+              <button onClick={handleClear}>Clear</button>
+              <button onClick={handleSaveSignature}>Save Signature</button>
+            </div>
+            {placingSignature && <div className="place-signature-info">Click on the PDF to place your signature.</div>}
           </div>
-        </div>
-        <div className="signature-section">
-          <h3>Draw Your Signature</h3>
-          <SignatureCanvas
-            penColor="black"
-            canvasProps={{ width: 300, height: 100, className: "sig-canvas" }}
-            ref={sigCanvasRef}
-          />
-          <div className="signature-controls">
-            <button onClick={handleClear}>Clear</button>
-            <button onClick={handleSaveSignature}>Save Signature</button>
-          </div>
-          {placingSignature && <div className="place-signature-info">Click on the PDF to place your signature.</div>}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
