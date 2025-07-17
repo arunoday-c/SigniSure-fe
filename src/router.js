@@ -1,8 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Login from "./pages/Login"
-import Home from "./pages/Home"
-import DocumentView from "./pages/DocumentView"
+import Login from "./pages/Login/Login"
+import Home from "./pages/Home/Home"
+import DocumentView from "./pages/DocumentView/DocumentView"
 import Dashboard from "./pages/Dashboard"
 
 function AppRouter() {

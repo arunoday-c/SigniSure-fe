@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Typography from "@mui/material/Typography"
-import Header from "../components/Header"
+import Header from "../components/Header/Header"
 
 function Dashboard() {
   const [theme, setTheme] = useState("primary")

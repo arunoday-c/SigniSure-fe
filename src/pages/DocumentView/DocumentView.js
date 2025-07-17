@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react"
 import { Document, Page, pdfjs } from "react-pdf"
 import SignatureCanvas from "react-signature-canvas"
-import Header from "../components/Header"
+import Header from "../../components/Header/Header"
 
 import "./DocumentView.css"
 

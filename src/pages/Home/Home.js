@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import "../App.css"
+import "../../App.css"
 import "./Home.css"
-import Header from "../components/Header"
+import Header from "../../components/Header/Header"
 import Typography from "@mui/material/Typography"
-import Button from "@mui/material/Button"
 
 function Home() {
   const [theme, setTheme] = useState("primary")
