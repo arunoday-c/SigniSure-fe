@@ -16,7 +16,17 @@
 }
 
 .header-toggle {
-  min-width: 32px;
-  padding: 4px 8px;
+  min-width: 28px;
+  width: 32px;
+  height: 32px;
+  padding: 2px 4px;
   margin-left: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-toggle svg {
+  font-size: 1.1rem;
 }
