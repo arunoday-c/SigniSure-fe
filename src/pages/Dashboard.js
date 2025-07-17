@@ -11,7 +11,7 @@ function Dashboard() {
         <Typography variant="h4" gutterBottom>
           Dashboard
         </Typography>
-        <Typography variant="body1">This is the dashboard page.</Typography>
+        <Typography variant="body1">View all your documents in one place</Typography>
       </main>
     </>
   )

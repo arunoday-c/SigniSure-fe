@@ -23,10 +23,15 @@ function Header({ theme, setTheme }) {
         <Typography variant="h6" className="header-title">
           SigniSure
         </Typography>
-        <Button color="inherit" className="header-btn" onClick={() => navigate("/dashboard")}>
+        <Button
+          color="inherit"
+          className="header-btn"
+          sx={{ textTransform: "none" }}
+          onClick={() => navigate("/dashboard")}
+        >
           Dashboard
         </Button>
-        <Button color="inherit" className="header-btn">
+        <Button color="inherit" className="header-btn" sx={{ textTransform: "none" }}>
           Sign Out
         </Button>
         <ToggleButton value="theme" selected={isDark} onChange={handleThemeToggle} className="header-toggle">
