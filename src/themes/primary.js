@@ -9,6 +9,10 @@ const primaryTheme = createTheme({
       main: "#dc004e",
     },
   },
+  typography: {
+    fontFamily:
+      "'Inter Tight', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  },
 })
 
 export default primaryTheme
