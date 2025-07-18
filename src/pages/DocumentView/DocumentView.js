@@ -71,6 +71,19 @@ function DocumentView() {
       <div className="document-view-container">
         <h2>Document Viewer</h2>
         <div className="document-main-content">
+          <div className="left-panel">
+            {Array.from({ length: numPages || 1 }, (_, i) => (
+              <div
+                key={i + 1}
+                className={`thumbnail-preview${pageNumber === i + 1 ? " selected" : ""}`}
+                onClick={() => setPageNumber(i + 1)}
+              >
+                <Document file={pdfUrl} loading="" noData="">
+                  <Page pageNumber={i + 1} width={60} loading="" />
+                </Document>
+              </div>
+            ))}
+          </div>
           <div className="pdf-section">
             <div className="pdf-wrapper" ref={pdfWrapperRef} onClick={handlePdfClick}>
               <Document file={pdfUrl} onLoadSuccess={({ numPages }) => setNumPages(numPages)} className="pdf-document">
@@ -101,7 +114,7 @@ function DocumentView() {
             </div>
           </div>
           <div className="right-panel">
-            <button className="add-signature-btn" onClick={handleOpenSignature}>
+            <button className="right-panel-btn" onClick={handleOpenSignature}>
               Add new signature
             </button>
             <button className="right-panel-btn">Signature</button>
