@@ -39,7 +39,7 @@ function Header({ theme, setTheme }) {
   return (
     <AppBar position="static">
       <Toolbar className="header-toolbar">
-        <Typography variant="h6" className="header-title">
+        <Typography variant="h6" className="header-title" style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
           SigniSure
         </Typography>
         <Button
