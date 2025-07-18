@@ -5,3 +5,19 @@
 .grow {
   flex-grow: 1;
 }
+
+.upload-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 28px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.2s;
+}
+.upload-btn:hover {
+  background: #115293;
+}
