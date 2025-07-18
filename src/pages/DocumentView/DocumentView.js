@@ -1,51 +1,68 @@
 import React, { useRef, useState } from "react"
 import { Document, Page, pdfjs } from "react-pdf"
-import SignatureCanvas from "react-signature-canvas"
 import Header from "../../components/Header/Header"
-
+import DrawSignature from "../../components/DrawSignature/DrawSignature"
 import "./DocumentView.css"
+import BorderColorIcon from "@mui/icons-material/BorderColor"
+import VerifiedIcon from "@mui/icons-material/Verified"
+import EditNoteIcon from "@mui/icons-material/EditNote"
+import PersonIcon from "@mui/icons-material/Person"
+import WorkIcon from "@mui/icons-material/Work"
+import BusinessIcon from "@mui/icons-material/Business"
+import EventIcon from "@mui/icons-material/Event"
+import TextFieldsIcon from "@mui/icons-material/TextFields"
+import TableChartIcon from "@mui/icons-material/TableChart"
+import CheckBoxIcon from "@mui/icons-material/CheckBox"
+import ImageIcon from "@mui/icons-material/Image"
+import EmailIcon from "@mui/icons-material/Email"
 
 pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs"
 
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search)
-// }
+const FIELD_TYPES = [
+  { type: "signature", label: "signature", icon: <BorderColorIcon className="dv-field-icon" /> },
+  { type: "stamp", label: "stamp", icon: <VerifiedIcon className="dv-field-icon" /> },
+  { type: "initials", label: "initials", icon: <EditNoteIcon className="dv-field-icon" /> },
+  { type: "name", label: "name", icon: <PersonIcon className="dv-field-icon" /> },
+  { type: "jobtitle", label: "job title", icon: <WorkIcon className="dv-field-icon" /> },
+  { type: "company", label: "company", icon: <BusinessIcon className="dv-field-icon" /> },
+  { type: "date", label: "date", icon: <EventIcon className="dv-field-icon" /> },
+  { type: "text", label: "text", icon: <TextFieldsIcon className="dv-field-icon" /> },
+  { type: "cells", label: "cells", icon: <TableChartIcon className="dv-field-icon" /> },
+  { type: "checkbox", label: "checkbox", icon: <CheckBoxIcon className="dv-field-icon" /> },
+  { type: "image", label: "image", icon: <ImageIcon className="dv-field-icon" /> },
+  { type: "email", label: "email", icon: <EmailIcon className="dv-field-icon" /> },
+]
 
 const SAMPLE_PDF_URL = "/sample.pdf"
 
 function DocumentView() {
-  //   const query = useQuery()
-  //   const fileId = query.get("id")
   const [theme, setTheme] = useState("primary")
   const [numPages, setNumPages] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
+  const [showSignaturePopup, setShowSignaturePopup] = useState(false)
   const [signatureURL, setSignatureURL] = useState(null)
-  const [placingSignature, setPlacingSignature] = useState(false)
   const [signaturePos, setSignaturePos] = useState(null)
-  const sigCanvasRef = useRef()
   const pdfWrapperRef = useRef()
 
   // For demonstration, always use the sample PDF
   const pdfUrl = SAMPLE_PDF_URL
 
-  const handleClear = () => {
-    sigCanvasRef.current.clear()
-    setSignatureURL(null)
-  }
-
-  const handleSaveSignature = () => {
-    const url = sigCanvasRef.current.getTrimmedCanvas().toDataURL("image/png")
-    setSignatureURL(url)
-    setPlacingSignature(true)
-  }
-
   const handlePdfClick = (e) => {
-    if (!placingSignature) return
+    if (!showSignaturePopup) return
     const rect = pdfWrapperRef.current.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
     setSignaturePos({ x, y })
-    setPlacingSignature(false)
+    setShowSignaturePopup(false)
+  }
+
+  const handleOpenSignature = () => {
+    setShowSignaturePopup(true)
+  }
+
+  const handleSaveSignature = (url) => {
+    setSignatureURL(url)
+    setShowSignaturePopup(false)
   }
 
   return (
@@ -83,21 +100,21 @@ function DocumentView() {
               </button>
             </div>
           </div>
-          <div className="signature-section">
-            <h3>Draw Your Signature</h3>
-            <SignatureCanvas
-              penColor="black"
-              canvasProps={{ width: 300, height: 100, className: "sig-canvas" }}
-              ref={sigCanvasRef}
-            />
-            <div className="signature-controls">
-              <button onClick={handleClear}>Clear</button>
-              <button onClick={handleSaveSignature}>Save Signature</button>
-            </div>
-            {placingSignature && <div className="place-signature-info">Click on the PDF to place your signature.</div>}
+          <div className="right-panel">
+            <button className="add-signature-btn" onClick={handleOpenSignature}>
+              Add new signature
+            </button>
+            <button className="right-panel-btn">Signature</button>
+            <button className="right-panel-btn">Stamp</button>
+            <button className="right-panel-btn">Initials</button>
+            <button className="right-panel-btn">Name</button>
+            <button className="right-panel-btn">Date</button>
           </div>
         </div>
       </div>
+      {showSignaturePopup && (
+        <DrawSignature onSave={handleSaveSignature} onClose={() => setShowSignaturePopup(false)} />
+      )}
     </>
   )
 }

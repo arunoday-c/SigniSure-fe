@@ -1,5 +1,5 @@
 .header-toolbar {
-  min-height: 40px;
+  min-height: 40px !important;
   padding-left: 8px;
   padding-right: 8px;
 }
