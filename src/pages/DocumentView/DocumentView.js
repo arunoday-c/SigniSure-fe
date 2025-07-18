@@ -78,15 +78,11 @@ function DocumentView() {
                 className={`thumbnail-preview${pageNumber === i + 1 ? " selected" : ""}`}
                 onClick={() => setPageNumber(i + 1)}
               >
-                <Document file={pdfUrl} loading="" noData="">
-                  <Page
-                    pageNumber={i + 1}
-                    width={60}
-                    loading=""
-                    renderTextLayer={false}
-                    renderAnnotationLayer={false}
-                  />
-                </Document>
+                <div className="thumbnail-inner">
+                  <Document file={pdfUrl} loading="" noData="">
+                    <Page pageNumber={i + 1} renderTextLayer={false} renderAnnotationLayer={false} />
+                  </Document>
+                </div>
               </div>
             ))}
           </div>
