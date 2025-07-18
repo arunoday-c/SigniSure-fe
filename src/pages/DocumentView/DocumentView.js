@@ -117,11 +117,16 @@ function DocumentView() {
             <button className="right-panel-btn" onClick={handleOpenSignature}>
               Add new signature
             </button>
-            <button className="right-panel-btn">Signature</button>
+            <button className="right-panel-btn">Select signature</button>
             <button className="right-panel-btn">Stamp</button>
             <button className="right-panel-btn">Initials</button>
             <button className="right-panel-btn">Name</button>
             <button className="right-panel-btn">Date</button>
+            <button className="right-panel-btn">Text</button>
+            <button className="right-panel-btn">Cells</button>
+            <button className="right-panel-btn">Checkbox</button>
+            <button className="right-panel-btn">Image</button>
+            <button className="right-panel-btn">Email</button>
           </div>
         </div>
       </div>
