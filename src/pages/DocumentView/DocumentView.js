@@ -79,15 +79,33 @@ function DocumentView() {
                 onClick={() => setPageNumber(i + 1)}
               >
                 <Document file={pdfUrl} loading="" noData="">
-                  <Page pageNumber={i + 1} width={60} loading="" />
+                  <Page
+                    pageNumber={i + 1}
+                    width={60}
+                    loading=""
+                    renderTextLayer={false}
+                    renderAnnotationLayer={false}
+                  />
                 </Document>
               </div>
             ))}
           </div>
           <div className="pdf-section">
             <div className="pdf-wrapper" ref={pdfWrapperRef} onClick={handlePdfClick}>
-              <Document file={pdfUrl} onLoadSuccess={({ numPages }) => setNumPages(numPages)} className="pdf-document">
-                <Page pageNumber={pageNumber} width={500} />
+              <Document
+                file={pdfUrl}
+                onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+                className="pdf-document"
+                loading=""
+                noData=""
+              >
+                <Page
+                  pageNumber={pageNumber}
+                  width={500}
+                  loading=""
+                  renderTextLayer={false}
+                  renderAnnotationLayer={false}
+                />
               </Document>
               {signatureURL && signaturePos && pageNumber === 1 && (
                 <img
