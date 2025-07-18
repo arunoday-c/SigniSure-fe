@@ -80,7 +80,7 @@ function Header({ theme, setTheme }) {
           </MenuItem>
         </Menu>
         <ToggleButton value="theme" selected={isDark} onChange={handleThemeToggle} className="header-toggle">
-          {isDark ? <DarkModeIcon /> : <LightModeIcon />}
+          {isDark ? <DarkModeIcon /> : <LightModeIcon sx={{ color: "#fff" }} />}
         </ToggleButton>
       </Toolbar>
     </AppBar>
