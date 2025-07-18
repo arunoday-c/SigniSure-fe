@@ -13,7 +13,7 @@
 
 .draw-signature-content {
   background: #fff;
-  border-radius: 1.2rem;
+  border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18), 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 2.5rem 2.2rem 2rem 2.2rem;
   display: flex;
@@ -48,6 +48,8 @@
   display: flex;
   gap: 14px;
   margin-top: 0.5rem;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .signature-controls button {
@@ -65,16 +67,4 @@
   background: #e3f0fd;
   color: #115293;
   border-color: #115293;
-}
-
-.close-btn {
-  border: 2px solid #e0e3e7;
-  color: #444;
-  background: #f5f7fa;
-  margin-left: 8px;
-}
-.close-btn:hover {
-  background: #e0e3e7;
-  color: #222;
-  border-color: #bfc5cc;
 }

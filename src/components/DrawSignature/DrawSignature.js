@@ -17,18 +17,16 @@ function DrawSignature({ onSave, onClose }) {
   return (
     <div className="draw-signature-popup">
       <div className="draw-signature-content">
-        <h3>Draw Your Signature</h3>
+        <h3>Draw your signature</h3>
         <SignatureCanvas
           penColor="black"
-          canvasProps={{ width: 300, height: 100, className: "sig-canvas" }}
+          canvasProps={{ width: 400, height: 150, className: "sig-canvas" }}
           ref={sigCanvasRef}
         />
         <div className="signature-controls">
           <button onClick={handleClear}>Clear</button>
           <button onClick={handleSaveSignature}>Save Signature</button>
-          <button onClick={onClose} className="close-btn">
-            Close
-          </button>
+          <button onClick={onClose}>Close</button>
         </div>
       </div>
     </div>
