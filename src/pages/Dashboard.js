@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import Typography from "@mui/material/Typography"
 import Header from "../components/Header/Header"
+import RoundedFilledBtn from "../components/Buttons/RoundedFilled/RoundedFilledBtn"
 
 function Dashboard() {
   const [theme, setTheme] = useState("primary")
@@ -36,9 +37,7 @@ function Dashboard() {
           Dashboard
         </Typography>
         <Typography variant="body1">View all your uploaded documents at one place</Typography>
-        <button className="upload-btn" onClick={handleUploadClick}>
-          Upload document
-        </button>
+        <RoundedFilledBtn onClick={handleUploadClick}>Upload document</RoundedFilledBtn>
         <input
           type="file"
           accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"

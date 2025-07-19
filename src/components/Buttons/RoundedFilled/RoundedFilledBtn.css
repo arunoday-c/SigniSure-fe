@@ -1,0 +1,17 @@
+.rounded-filled-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 2rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.2s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}
+.rounded-filled-btn:hover {
+  background: #115293;
+}

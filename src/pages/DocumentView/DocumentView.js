@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Document, Page, pdfjs } from "react-pdf"
 import Header from "../../components/Header/Header"
 import DrawSignature from "../../components/DrawSignature/DrawSignature"
+import RoundedOutlinedBtn from "../../components/Buttons/RoundedOutlined/RoundedOutlinedBtn"
 import "./DocumentView.css"
 import BorderColorIcon from "@mui/icons-material/BorderColor"
 import VerifiedIcon from "@mui/icons-material/Verified"
@@ -113,34 +114,34 @@ function DocumentView() {
               )}
             </div>
             <div className="pdf-controls">
-              <button onClick={() => setPageNumber((p) => Math.max(1, p - 1))} disabled={pageNumber <= 1}>
+              <RoundedOutlinedBtn onClick={() => setPageNumber((p) => Math.max(1, p - 1))} disabled={pageNumber <= 1}>
                 Previous
-              </button>
+              </RoundedOutlinedBtn>
               <span>
                 Page {pageNumber} of {numPages || 1}
               </span>
-              <button
+              <RoundedOutlinedBtn
                 onClick={() => setPageNumber((p) => Math.min(numPages || 1, p + 1))}
                 disabled={pageNumber >= (numPages || 1)}
               >
                 Next
-              </button>
+              </RoundedOutlinedBtn>
             </div>
           </div>
           <div className="right-panel">
-            <button className="right-panel-btn" onClick={handleOpenSignature}>
+            <RoundedOutlinedBtn className="right-panel-btn" onClick={handleOpenSignature}>
               Add new signature
-            </button>
-            <button className="right-panel-btn">Select signature</button>
-            <button className="right-panel-btn">Stamp</button>
-            <button className="right-panel-btn">Initials</button>
-            <button className="right-panel-btn">Name</button>
-            <button className="right-panel-btn">Date</button>
-            <button className="right-panel-btn">Text</button>
-            <button className="right-panel-btn">Cells</button>
-            <button className="right-panel-btn">Checkbox</button>
-            <button className="right-panel-btn">Image</button>
-            <button className="right-panel-btn">Email</button>
+            </RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Signature</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Stamp</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Initials</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Name</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Date</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Text</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Cells</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Checkbox</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Image</RoundedOutlinedBtn>
+            <RoundedOutlinedBtn className="right-panel-btn">Email</RoundedOutlinedBtn>
           </div>
         </div>
       </div>
