@@ -1,6 +1,6 @@
 # SigniSure
 
-SigniSure is an online platform for viewing and signing documents, inspired by SignProDoc but with a unique codebase and improved clarity. This app is built with React and uses Material UI minimally for a modern look.
+SigniSure is an online platform for viewing and signing documents. This app is built with React and uses Material UI minimally for a modern look.
 
 ## Features (High-Level)
 
@@ -12,13 +12,8 @@ SigniSure is an online platform for viewing and signing documents, inspired by S
 ## Tech Stack
 
 - React (bootstrapped with Create React App)
-- [Material UI (MUI)](https://mui.com/) (used only for navigation bar and a few UI elements)
+- [Material UI (MUI)](https://mui.com/) (used only for a few UI elements)
 
-## Developer Notes
-
-- The codebase is **not** a copy of SignProDoc; it is rewritten for clarity and maintainability.
-- All major components and files include high-level comments to help new developers understand the structure and flow.
-- To keep dependencies light, Material UI is only used for the AppBar, Toolbar, Button, and Typography components.
 
 ## Getting Started
 
