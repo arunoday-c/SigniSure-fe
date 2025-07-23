@@ -2,11 +2,14 @@
   min-height: 40px !important;
   padding-left: 8px;
   padding-right: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.header-title {
+.header-logo {
   font-size: 1.1rem;
-  flex-grow: 1;
+  cursor: pointer;
+  height: 25px;
 }
 
 .header-btn {

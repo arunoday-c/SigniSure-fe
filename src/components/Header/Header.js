@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
 import Button from "@mui/material/Button"
@@ -15,7 +16,7 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import { useNavigate } from "react-router-dom"
+
 import "./Header.css"
 
 function Header({ theme, setTheme }) {
@@ -39,49 +40,49 @@ function Header({ theme, setTheme }) {
   return (
     <AppBar position="static">
       <Toolbar className="header-toolbar">
-        <Typography variant="h6" className="header-title" style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
-          SigniSure
-        </Typography>
-        <Button
-          color="inherit"
-          className="header-btn"
-          sx={{ textTransform: "none" }}
-          onClick={() => navigate("/dashboard")}
-        >
-          Dashboard
-        </Button>
-        <IconButton color="inherit" onClick={handleProfileClick} size="large">
-          <AccountCircleIcon />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleMenuClose}
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          transformOrigin={{ vertical: "top", horizontal: "right" }}
-        >
-          <MenuItem onClick={handleMenuClose}>
-            <ListItemIcon>
-              <PersonIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText>Profile</ListItemText>
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose}>
-            <ListItemIcon>
-              <LockIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText>Change password</ListItemText>
-          </MenuItem>
-          <MenuItem onClick={handleMenuClose}>
-            <ListItemIcon>
-              <LogoutIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText>Log out</ListItemText>
-          </MenuItem>
-        </Menu>
-        <ToggleButton value="theme" selected={isDark} onChange={handleThemeToggle} className="header-toggle">
-          {isDark ? <DarkModeIcon /> : <LightModeIcon sx={{ color: "#fff" }} />}
-        </ToggleButton>
+        <img src="/SigniSureLogo.svg" alt="SigniSure Logo" className="header-logo" onClick={() => navigate("/")} />
+        <div>
+          <Button
+            color="inherit"
+            className="header-btn"
+            sx={{ textTransform: "none" }}
+            onClick={() => navigate("/dashboard")}
+          >
+            Dashboard
+          </Button>
+          <IconButton color="inherit" onClick={handleProfileClick} size="large">
+            <AccountCircleIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleMenuClose}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <MenuItem onClick={handleMenuClose}>
+              <ListItemIcon>
+                <PersonIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>Profile</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={handleMenuClose}>
+              <ListItemIcon>
+                <LockIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>Change password</ListItemText>
+            </MenuItem>
+            <MenuItem onClick={handleMenuClose}>
+              <ListItemIcon>
+                <LogoutIcon fontSize="small" />
+              </ListItemIcon>
+              <ListItemText>Log out</ListItemText>
+            </MenuItem>
+          </Menu>
+          <ToggleButton value="theme" selected={isDark} onChange={handleThemeToggle} className="header-toggle">
+            {isDark ? <DarkModeIcon /> : <LightModeIcon sx={{ color: "#fff" }} />}
+          </ToggleButton>
+        </div>
       </Toolbar>
     </AppBar>
   )
